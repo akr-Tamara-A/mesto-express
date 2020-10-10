@@ -12,4 +12,16 @@ router.get('/users', (req, res) => {
   });
 });
 
+/** Обработка запроса отдельного пользователя */
+router.get('/users/:id', (req, res) => {
+  const { id } = req.params;
+  readFile(jsonDataPath).then((data) => {
+    const requestedUser = data.find((user) => user._id === id);
+    if (!requestedUser) {
+      res.status(404).send({ message: 'Нет пользователя с таким id' });
+    }
+    res.send(requestedUser);
+  });
+});
+
 module.exports = router;
