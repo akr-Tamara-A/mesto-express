@@ -14,6 +14,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', userRoutes);
 app.use('/', cardsRoutes);
 
+/** Обработка неправильного запроса */
+app.use((req, res, next) => {
+  res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
+  next();
+});
+
 /** Слушатель порта */
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
