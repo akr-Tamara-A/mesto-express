@@ -5,9 +5,6 @@ npm-debug.log*
 
 # Dependency directory
 node_modules
-data
-utils
-routes
 
 # Optional npm cache directory
 .npm
