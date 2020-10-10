@@ -8,7 +8,6 @@ node_modules
 data
 utils
 routes
-public
 
 # Optional npm cache directory
 .npm
